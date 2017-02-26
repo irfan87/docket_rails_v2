@@ -1,7 +1,11 @@
 class CustomersController < ApplicationController
+	before_filter :authenticate_user!
+
   def index
-  	@user = current_user
-  	@customers = @user.customers.all
+  	if user_signed_in?
+	  	@user = current_user
+	  	@customers = @user.customers.all
+  	end
   end
 
   def new
