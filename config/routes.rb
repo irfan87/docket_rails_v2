@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   	resources :customers
   end
 
-  root to: 'shops#index'
+  root to: 'customers#index'
 end

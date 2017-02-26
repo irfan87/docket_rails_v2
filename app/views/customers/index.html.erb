@@ -1,0 +1,33 @@
+<div class="container">
+	<%= render 'layouts/messages'%>
+	<div class="col-md-12">
+		<h1>Customers List</h1>
+		<div>
+			<%= link_to 'New Customer', new_user_customer_path(current_user), class: 'btn btn-default' %>
+		</div>
+		<div>
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Name</td>
+						<td>Address</td>
+						<td>Postcode</td>
+						<td>Actions</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customers.each do |customer| %>
+					<tr>
+						<td><%= customer.customer_name %></td>
+						<td><%= customer.customer_address %></td>
+						<td><%= customer.customer_postcode %></td>
+						<td>
+							<%= link_to 'Show Detail Customer', user_customer_path(current_user, @customer), class: 'btn btn-primary' %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
