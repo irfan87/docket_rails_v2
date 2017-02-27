@@ -27,6 +27,11 @@ class CustomersController < ApplicationController
   	@customer = @user.customers.find(params[:id])
   end
 
+  def edit
+  	@user = current_user
+  	@customer = @user.customers.find(params[:id])
+  end
+
   private
 
   def customer_params

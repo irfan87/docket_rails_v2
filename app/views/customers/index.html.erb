@@ -22,7 +22,7 @@
 						<td><%= customer.customer_address %></td>
 						<td><%= customer.customer_postcode %></td>
 						<td>
-							<%= link_to 'Show Detail Customer', user_customer_path(current_user, @customer), class: 'btn btn-primary' %>
+							<%= link_to 'Show Detail Customer', user_customer_path(current_user, customer), class: 'btn btn-primary' %>
 						</td>
 					</tr>
 					<% end %>
