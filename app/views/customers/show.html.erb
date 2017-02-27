@@ -26,7 +26,11 @@
 					</ul>
 				</div>
 				<div class="panel-footer">
+<<<<<<< HEAD
 					<%= link_to 'Edit Detail', '#', class: 'btn btn-primary panel-right' %>
+=======
+					<%= link_to 'Edit Detail', edit_user_customer_path(current_user, @customer), class: 'btn btn-primary panel-right' %>
+>>>>>>> setup_customer
 					<%= link_to 'Delete Customer', '#', class: 'btn btn-danger panel-right', method: :delete, data: {confirm: 'Are you sure want to delete this user detail?'} %>
 				</div>
 			</div>
