@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
   		flash.now[:success] = 'Success!'
   		redirect_to root_path
   	else
-  		flash.now[:danger] = 'Error'
+  		flash.now[:error] = 'Error'
   		render :new
   	end
   end
@@ -34,6 +34,28 @@ class CustomersController < ApplicationController
   def edit
   	@user = current_user
   	@customer = @user.customers.find(params[:id])
+  end
+
+  def update
+  	@user = current_user
+  	@customer = @user.customers.find(params[:id])
+
+  	if @customer.update_attributes(customer_params)
+  		flash.now[:success] = "Edit #{@customer.customer_name} is success"
+  		redirect_to root_path
+  	else
+  		flash.now[:error] = "Unable to edit your user information"
+  		render :new
+  	end
+  end
+
+  def destroy
+  	@user = current_user
+  	@customer = @user.customers.find(params[:id])
+
+  	@customer.destroy
+  	flash.now[:success] = "#{@customer.id} is deleted"
+  	redirect_to root_path
   end
 
   private
