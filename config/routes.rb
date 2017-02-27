@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   	resources :customers
   end
 
-  root to: 'customers#index'
+  root to: 'welcome_pages#index'
 end

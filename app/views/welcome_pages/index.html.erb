@@ -1,3 +1,47 @@
+<% if user_signed_in? %>
+<div class="">
+	<h3>Hello <%= current_user.email %>!</h3>
+	<p>
+		Your last login is <%= distance_of_time_in_words_to_now(current_user.last_sign_in_at) %> ago
+	</p>
+</div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Customers
+		</div>
+		<div class="panel-body">
+			<p>
+				<%= current_user.customers.count %>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Shops
+		</div>
+		<div class="panel-body">
+			<p>
+				<%= current_user.shops.count %>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Items
+		</div>
+		<div class="panel-body">
+			<p>
+				<%= current_user.shops.count %>
+			</p>
+		</div>
+	</div>
+</div>
+<% else %>
 <div class="jumbotron">
 	<h1>Hello!</h1>
 	<p>
@@ -5,3 +49,4 @@
 	</p>
 	<%= link_to 'Sign Up!', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
 </div>
+<% end %>
