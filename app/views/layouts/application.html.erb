@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Docket Rails V2" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Docket Rails V2" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-  </body>
+<head>
+  <title>Docket Rails V2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="nav-md">
+  <div class="container body">
+    <% flash.each do |key, value| %>
+        <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <%= render 'partials/sidenav' %>
+    <%= render 'partials/topnav' %>
+    <%= yield %>
+
+    <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+</body>
+
 </html>

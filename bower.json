@@ -1,0 +1,11 @@
+{
+  "name": "docket_rails_v2",
+  "authors": [
+  	"irfan"
+  ],
+  "version": "1.0",
+  "main": "",
+  "dependencies": {
+  	"gentelella": "1.1.0"
+  }
+}

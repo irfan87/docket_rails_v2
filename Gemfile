@@ -37,13 +37,21 @@ gem 'jbuilder', '~> 2.5'
 
 gem "devise"
 
-gem "bootstrap-sass"
+gem "bootstrap-sass", "~>3.3.6"
 
 gem "figaro"
 
 gem "delayed_job_active_record"
 
 gem "pry-rails", group: :development
+
+gem "gentelella-rails"
+
+gem "bower"
+
+gem "pace-rails"
+
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,7 +66,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem "rails_layout"
+  # gem "rails_layout"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
