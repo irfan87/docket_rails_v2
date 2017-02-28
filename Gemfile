@@ -45,8 +45,6 @@ gem "delayed_job_active_record"
 
 gem "pry-rails", group: :development
 
-gem "gentelella-rails"
-
 gem "bower"
 
 gem "pace-rails"
