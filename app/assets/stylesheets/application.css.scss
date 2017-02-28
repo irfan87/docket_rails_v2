@@ -12,25 +12,4 @@
  *
  *= require_tree .
  *= require_self
- *= require font-awesome
- *= require css/animate.min
- *= require css/custom
- *= require css/icheck/flat/green
- *= require css/floatexamples
- *= require css/normalize
- *= require css/ion.rangeSlider
- *= require css/ion.rangeSlider.skinFlat
  */
-
-@import "bootstrap";
-@import "bootstrap-sprockets";
-@import "pace";
-
-@font-face {
-	font-family: 'Glyphicons Halflings';
-   src: url('/assets/glyphicons-halflings-regular.eot');
-   src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-      url('/assets/glyphicons-halflings-regular.woff') format('woff'),
-      url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
-      url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
