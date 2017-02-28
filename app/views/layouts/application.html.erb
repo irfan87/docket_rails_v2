@@ -7,19 +7,9 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-witdh, initial-scale=1">
 </head>
-<body class="nav-md">
-  <div class="container body">
-    <% flash.each do |key, value| %>
-      <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-
-  <%= render "partials/sidenav" %>
-  <%= render "partials/topnav" %>
-
+<body>
+  <%= render 'layouts/nav_links_for_auth' %>
   <%= yield %>
-
-    <%= render "partials/footer" %>
-    <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
   </div>
 </body>
 </html>
