@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226091743) do
+ActiveRecord::Schema.define(version: 20170302093524) do
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "customer_name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170226091743) do
     t.string   "shop_another_phone"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.boolean  "main_shop"
     t.index ["user_id"], name: "index_shops_on_user_id", using: :btree
   end
 

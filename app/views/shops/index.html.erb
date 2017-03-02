@@ -1,2 +1,43 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<div class="container">
+	<h1>Shop Lists</h1>
+	<div class="pull-left">
+		<%= link_to 'new shop'.upcase, new_user_shop_path(current_user), class: 'btn btn-primary'%>
+	</div>
+	<div class="clearfix"></div>
+	<br />
+	<div class="col-md-10 col-md-offset-1">
+		<% if current_user.shops.any? %>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Shop Name</th>
+					<th>Address</th>
+					<th>Postcode</th>
+					<th>State</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% current_user.shops.each do |shop| %>
+				<tr>
+					<td><%= shop.shop_name.upcase %></td>
+					<td><%= shop.shop_address %></td>
+					<td><%= shop.shop_postcode %></td>
+					<td><%= shop.shop_state %></td>
+					<td>
+						<%= link_to 'View Shop', '#', class: 'btn btn-info' %>
+						<%= link_to 'Delete Shop', '#', class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure want to delete this shop?"} %>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% else %>
+		<div class="">
+			<div class="">
+				<p class="alert alert-danger">You don't have any shop yet</p>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

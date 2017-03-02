@@ -1,62 +1,49 @@
 <div class="container">
-	<% if user_signed_in? %>
-<div class="">
-	<h3>Hello <%= current_user.email %>!</h3>
-	<p id="time_fields">
-		Your last login is <%= distance_of_time_in_words_to_now(current_user.current_sign_in_at) %> ago
-	</p>
-</div>
-<div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<i class="fa fa-users"></i> <span>Customers</span>
-		</div>
-		<div class="panel-body">
-			<p>
-				<%= current_user.customers.count %>
-			</p>
-		</div>
-	</div>
-</div>
-<div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<i class="fa fa-building"></i> <span>Shops</span>
-		</div>
-		<div class="panel-body">
-			<p>
-				<%= current_user.shops.count %>
-			</p>
-		</div>
-	</div>
-</div>
-<div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<i class="fa fa-gift"></i> <span>Items</span>
-		</div>
-		<div class="panel-body">
-			<p>
-				<%= current_user.shops.count %>
-			</p>
-		</div>
-	</div>
-</div>
-<div class="col-md-10 col-md-offset-1">
-	<% if current_user.shops.present? %>
-		<% current_user.shops.each do |shop|%>
-			<ul>
-				<li><%= shop.shop_name %></li>
-				<li><%= shop.shop_address%></li>
-			</ul>
-		<% end %>
-	<% else %>
+<% if user_signed_in? %>
 	<div class="">
-		<div class="">
-			<p class="alert alert-danger">You don't have any shop yet</p>
+		<h3>Hello <%= current_user.email %>!</h3>
+		<p id="time_fields">
+			Your last login is <%= distance_of_time_in_words_to_now(current_user.current_sign_in_at) %> ago
+		</p>
+		<p>
+			<%= render 'shops/main_shop_info' %>
+		</p>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-users"></i> <span>Customers</span>
+			</div>
+			<div class="panel-body">
+				<p>
+					<%= current_user.customers.count %>
+				</p>
+			</div>
 		</div>
 	</div>
-	<% end %>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-building"></i> <span><%= link_to 'Shops', user_shops_path(current_user)%></span>
+			</div>
+			<div class="panel-body">
+				<p>
+					<%= current_user.shops.count %>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-gift"></i> <span>Items</span>
+			</div>
+			<div class="panel-body">
+			<p>
+				<%= current_user.shops.count %>
+			</p>
+		</div>
+	</div>
 </div>
 <% else %>
 <div class="jumbotron">
