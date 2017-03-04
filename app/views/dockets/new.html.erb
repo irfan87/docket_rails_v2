@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="col-md-12">
+		<h1>Create Docket</h1>
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3>Owner Part</h3>
+				</div>
+				<div class="panel-body">
+					<%= form_for [current_user, @docket] do |f| %>
+						<%= f.label :shop_name %>
+						<%= f.collection_select(:user_id, current_user.shops.all, :id, :shop_name) %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3>Customer Part</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3>Item Part</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= console %>

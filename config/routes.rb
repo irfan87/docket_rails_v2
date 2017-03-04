@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users do
   	resources :shops
   	resources :customers
+  	resources :dockets
   end
 
   root to: 'welcome_pages#index'
