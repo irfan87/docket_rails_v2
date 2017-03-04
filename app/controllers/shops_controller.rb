@@ -1,8 +1,6 @@
 class ShopsController < ApplicationController
   def index
   	@shops = current_user.shops.all
-  	
-  	@shop if main_shop(current_user.shops.where(main_shop: true))
   end
 
 	def new
@@ -14,7 +12,7 @@ class ShopsController < ApplicationController
   	
   	if @shop.save
   		flash[:success] = "You have created a new shop"
-  		redirect_to root_path
+	  	redirect_to user_shops_path(current_user)
   	else
   		flash.now[:error] = "Unable to create / save new shop"
   		render :new
@@ -22,12 +20,36 @@ class ShopsController < ApplicationController
   end
   
   def show
-  	@main_shop = current_user.shops.find_by_main_shop(true)
+  	@shop = current_user.shops.find(params[:id])
+  end
+  
+  def edit
+  	@shop = current_user.shops.find(params[:id])
+  end
+  
+  def update
+  	@shop = current_user.shops.find(params[:id])
+  	if @shop.update(shop_params)
+  		flash[:success] = 'Update Success'
+	  	redirect_to user_shops_path(current_user)
+  	else
+  		flash[:danger] = 'Unable to update'
+  		render :edit
+  	end
+  end
+  
+  def destroy
+  	@shop = current_user.shop.find(params[:id])
+  	@shop.destroy
+  	
+  	flash.now[:success] = 'One shop have been deleted'
+  	
+  	redirect_to user_shops_path(current_user)
   end
 
   private
 
   def shop_params
-  	params.require(:shop).permit(:user_id, :shop_name, :shop_address, :shop_postcode, :shop_state, :shop_phone, :shop_another_phone, :main_shop)
+  	params.require(:shop).permit(:user_id, :shop_name, :shop_address, :shop_postcode, :shop_state, :shop_phone, :shop_another_phone)
   end
 end

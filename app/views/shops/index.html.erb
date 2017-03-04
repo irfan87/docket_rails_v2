@@ -7,31 +7,7 @@
 	<br />
 	<div class="col-md-10 col-md-offset-1">
 		<% if current_user.shops.any? %>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Shop Name</th>
-					<th>Address</th>
-					<th>Postcode</th>
-					<th>State</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% current_user.shops.each do |shop| %>
-				<tr>
-					<td><%= shop.shop_name.upcase %></td>
-					<td><%= shop.shop_address %></td>
-					<td><%= shop.shop_postcode %></td>
-					<td><%= shop.shop_state %></td>
-					<td>
-						<%= link_to 'View Shop', '#', class: 'btn btn-info' %>
-						<%= link_to 'Delete Shop', '#', class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure want to delete this shop?"} %>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+			<%= render 'shop_list'%>
 		<% else %>
 		<div class="">
 			<div class="">
