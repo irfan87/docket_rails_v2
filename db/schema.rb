@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304044552) do
+ActiveRecord::Schema.define(version: 20170304055717) do
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "customer_name"
-    t.string   "customer_address"
-    t.string   "customer_hp_number"
-    t.integer  "customer_postcode"
     t.integer  "user_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "customer_phone_number"
+    t.string   "cust_name"
+    t.text     "cust_address",  limit: 65535
+    t.string   "cust_postcode"
+    t.string   "cust_phone"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
   end
 
